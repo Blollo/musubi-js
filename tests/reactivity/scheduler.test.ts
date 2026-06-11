@@ -155,7 +155,7 @@ describe("scheduler", () => {
         await nextTick();
 
         expect(healthyRuns).toBe(2); // initial + post-mutation run
-        expect(error).toHaveBeenCalledWith("[naru] effect error:", expect.any(Error));
+        expect(error).toHaveBeenCalledWith("[musubi] effect error:", expect.any(Error));
 
         bad.stop();
         good.stop();

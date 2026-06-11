@@ -43,7 +43,7 @@ export function watch (
     // watch(count, …)), so say it out loud.
     if (source === null || (typeof source !== "object" && typeof source !== "function")) {
         console.warn(
-            `[naru] watch() received a primitive (${JSON.stringify(source)}) — it will never trigger. ` +
+            `[musubi] watch() received a primitive (${JSON.stringify(source)}) — it will never trigger. ` +
             `Pass a ref, a getter function, or a reactive object.`
         );
     }

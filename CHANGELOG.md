@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.1.1 (unreleased)
+
+### Fixed
+
+- **0.1.0 was uninstallable**: the package `exports` pointed at `dist/musubi.js`
+  while the published `dist/` still contained the pre-rename `naru-reactive.js`
+  files (and the Vite config emitted a third name, `musubi-js.js`). The build
+  now emits `dist/musubi.js` / `dist/musubi.iife.min.js`, matching the
+  `exports` map. The IIFE global is now `Musubi` (was `NaruReactive`).
+- Console messages now use the `[musubi]` prefix.
+
+
 This file is maintained by [Changesets](https://github.com/changesets/changesets);
 entries below are generated from `.changeset/` files at release time.
 

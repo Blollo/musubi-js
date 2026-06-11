@@ -64,7 +64,7 @@ export function computed<T> (getter: () => T): ComputedRef<T> {
             // assignment throw a cryptic TypeError in strict mode (all module
             // code is strict) — warn with a useful message instead.
             console.warn(
-                `[naru] computed refs are read-only — assignment to "${String(prop)}" was ignored.`
+                `[musubi] computed refs are read-only — assignment to "${String(prop)}" was ignored.`
             );
 
             return true;

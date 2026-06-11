@@ -52,13 +52,13 @@ const directives = new Map<string, DirectiveBinder>([
 export function registerDirective (name: string, binder: DirectiveBinder): void {
     if (typeof name !== "string" || !/^[a-z][a-z0-9-]*$/i.test(name)) {
         throw new TypeError(
-            `[naru] registerDirective: "${name}" is not a valid directive name — ` +
+            `[musubi] registerDirective: "${name}" is not a valid directive name — ` +
             `use a bare name like "tooltip" (it registers [tooltip] and data-tooltip).`
         );
     }
 
     if (typeof binder !== "function") {
-        throw new TypeError("[naru] registerDirective: binder must be a function (el, expression, store, ctx).");
+        throw new TypeError("[musubi] registerDirective: binder must be a function (el, expression, store, ctx).");
     }
 
     directives.set(`[${name}]`, binder);

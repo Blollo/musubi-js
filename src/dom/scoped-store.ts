@@ -38,7 +38,7 @@ export function setDeep (store: Store, expr: string, value: any): void {
     const parts = expr.split(".").map(p => p.trim());
 
     if (parts.some(p => FORBIDDEN_SEGMENTS.has(p))) {
-        console.warn(`[naru] blocked write to "${expr}" — prototype-related path segments are not allowed.`);
+        console.warn(`[musubi] blocked write to "${expr}" — prototype-related path segments are not allowed.`);
 
         return;
     }

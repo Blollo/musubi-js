@@ -26,7 +26,7 @@ export interface ReadonlyRef<T = any> {
 
 // internal key the ref proxy answers with a closure that force-triggers its
 // subscribers. a symbol so it can never collide with (or leak into) user data.
-const RefForceTrigger = Symbol("naru.refForceTrigger");
+const RefForceTrigger = Symbol("musubi.refForceTrigger");
 
 /** True only for values created by ref() or computed() — never duck-typed. */
 export function isRef<T = any> (value: unknown): value is Ref<T> {
@@ -99,7 +99,7 @@ export function ref (initialValue?: any): any {
                 // returning false would make the assignment throw a cryptic
                 // TypeError in strict mode (all module code) — warn instead
                 console.warn(
-                    `[naru] refs only expose .value — assignment to "${String(prop)}" was ignored.`
+                    `[musubi] refs only expose .value — assignment to "${String(prop)}" was ignored.`
                 );
 
                 return true;

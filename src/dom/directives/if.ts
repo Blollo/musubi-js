@@ -20,7 +20,7 @@ export function bindIf (el: Element, expr: string, store: Store, ctx: ScanContex
     // inserting it, so the clone has no parent yet when its directives bind.
     if (!parent) {
         console.warn(
-            "[naru] [if] needs a parent element and was ignored. " +
+            "[musubi] [if] needs a parent element and was ignored. " +
             "Don't combine [if] and data-for on the same element — put [if] on a wrapper " +
             "or filter the list in the store instead."
         );

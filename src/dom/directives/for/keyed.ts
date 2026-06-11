@@ -69,7 +69,7 @@ export function bindForKeyed (
             // prevent orphaned DOM nodes and leaked scopes.
             if (rowsByKey.has(key)) {
                 console.warn(
-                    `[naru] data-for: duplicate :key "${key}" at index ${i}. ` +
+                    `[musubi] data-for: duplicate :key "${key}" at index ${i}. ` +
                     `Each key must be unique — duplicates cause unexpected behaviour.`
                 );
 

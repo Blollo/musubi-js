@@ -1,6 +1,6 @@
 {
     "name": "musubi-js",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "Vue-Composition-API-style reactivity and DOM bindings for traditional multi-page sites. No build step required.",
     "type": "module",
     "main": "./dist/musubi.js",

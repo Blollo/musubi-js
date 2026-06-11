@@ -101,7 +101,7 @@ export function evalInScope (expr: string | null | undefined, store: Store): any
         return fn(...values);
     }
     catch (e) {
-        console.error("[naru] expression error:", expr, e);
+        console.error("[musubi] expression error:", expr, e);
 
         return undefined;
     }

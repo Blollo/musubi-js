@@ -128,12 +128,12 @@ function createScanContext (): ScanContext {
  */
 export function mount (root: ParentNode, store: Store, _options: MountOptions = {}): MountHandle {
     if (!root || typeof root.querySelectorAll !== "function") {
-        throw new TypeError("[naru] mount() expects a dom element (or document) as the first argument.");
+        throw new TypeError("[musubi] mount() expects a dom element (or document) as the first argument.");
     }
 
     if (store == null || typeof store !== "object") {
         throw new TypeError(
-            "[naru] mount() requires a store object as the second argument — " +
+            "[musubi] mount() requires a store object as the second argument — " +
             "the implicit window default was removed because it silently exposes every global to template expressions."
         );
     }
@@ -163,7 +163,7 @@ let warned = false;
 export function scanBindings (root: ParentNode = document, store: Store = window as unknown as Store): void {
     if (!warned) {
         console.warn(
-            "[naru] scanBindings() is deprecated — use mount(root, store) instead. " +
+            "[musubi] scanBindings() is deprecated — use mount(root, store) instead. " +
             "mount gives each call its own scope, requires an explicit store, and returns a stop() handle."
         );
         warned = true;

@@ -12,12 +12,12 @@ export default defineConfig({
         sourcemap: true,
         lib: {
             entry: "src/index.ts",
-            name: "NaruReactive",
+            name: "Musubi",
             formats: ["es", "iife"],
             fileName: format => (
                 format === "es"
-                    ? "musubi-js.js"
-                    : "musubi-js.iife.min.js"
+                    ? "musubi.js"
+                    : "musubi.iife.min.js"
             )
         }
     },

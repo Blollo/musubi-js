@@ -83,7 +83,7 @@ export function trigger (subscribers: Subscribers | null | undefined): void {
     try {
         if (syncTriggerDepth > MAX_SYNC_TRIGGER_DEPTH) {
             throw new Error(
-                `[naru] Possible infinite synchronous reactive loop detected: ` +
+                `[musubi] Possible infinite synchronous reactive loop detected: ` +
                 `trigger recursion exceeded ${MAX_SYNC_TRIGGER_DEPTH} levels ` +
                 `(sync effects or computeds re-triggering each other).`
             );

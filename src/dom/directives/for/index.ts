@@ -26,7 +26,7 @@ export function bindFor (el: Element, store: Store, ctx: ScanContext): void {
     const match = expr.match(/\(?\s*(\w+)(?:\s*,\s*(\w+))?(?:\s*,\s*(\w+))?\s*\)?\s+of\s+(.+)/);
 
     if (!match) {
-        console.error("[naru] invalid data-for expression:", expr);
+        console.error("[musubi] invalid data-for expression:", expr);
 
         return;
     }

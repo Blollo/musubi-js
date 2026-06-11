@@ -115,7 +115,7 @@ const customAdapters: { match: (el: Element) => boolean; adapter: ModelAdapter }
 export function registerModelAdapter (match: (el: Element) => boolean, adapter: ModelAdapter): void {
     if (typeof match !== "function" || typeof adapter !== "function") {
         throw new TypeError(
-            "[naru] registerModelAdapter(match, adapter) expects two functions: " +
+            "[musubi] registerModelAdapter(match, adapter) expects two functions: " +
             "a matcher (el) => boolean and an adapter (el, { get, set }) => void."
         );
     }

@@ -41,7 +41,7 @@ export function createEventBus (): EventBus {
                 fn(...values);
             }
             catch (e) {
-                console.error(`[naru] event handler error for "${eventName}":`, e);
+                console.error(`[musubi] event handler error for "${eventName}":`, e);
             }
         }
     }

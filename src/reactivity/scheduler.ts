@@ -39,7 +39,7 @@ function flushEffectQueue (): void {
             if (++iterations > MAX_FLUSH_ITERATIONS) {
                 effectQueue.clear();
                 throw new Error(
-                    `[naru] Possible infinite reactive loop detected: ` +
+                    `[musubi] Possible infinite reactive loop detected: ` +
                     `effect queue was still non-empty after ${MAX_FLUSH_ITERATIONS} flush iterations.`
                 );
             }
@@ -59,7 +59,7 @@ function flushEffectQueue (): void {
                     fn();
                 }
                 catch (e) {
-                    console.error("[naru] effect error:", e);
+                    console.error("[musubi] effect error:", e);
                 }
             }
         }

@@ -12,7 +12,7 @@ const reactiveMap = new WeakMap<object, any>();
 // pseudo-property that key-enumeration subscribes to: effects that iterate
 // the object (Object.keys, for…in, data-for over objects) re-run when a
 // property is added or removed — not just when an existing one changes
-const ITERATE_KEY = Symbol("naru.iterate");
+const ITERATE_KEY = Symbol("musubi.iterate");
 
 /** True for proxies created by reactive(). */
 export function isReactive (value: unknown): boolean {
@@ -23,7 +23,7 @@ export function isReactive (value: unknown): boolean {
 export function reactive<T extends object> (target: T): T;
 export function reactive (target: any): any {
     if (!target || typeof target !== "object") {
-        console.warn("[naru] reactive() expects an object");
+        console.warn("[musubi] reactive() expects an object");
 
         return target;
     }
@@ -90,7 +90,7 @@ export function reactive (target: any): any {
             // prototype-pollution guard. returning false would throw a cryptic
             // TypeError in strict mode — block the write with a warning instead.
             if (prop === "__proto__" || prop === "constructor" || prop === "prototype") {
-                console.warn(`[naru] blocked assignment to "${String(prop)}" on a reactive object.`);
+                console.warn(`[musubi] blocked assignment to "${String(prop)}" on a reactive object.`);
 
                 return true;
             }
