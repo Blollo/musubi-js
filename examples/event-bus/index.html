@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event bus — naru-reactive</title>
+    <link rel="stylesheet" href="../shared/example.css" />
+</head>
+<body>
+    <nav class="breadcrumb"><a href="../">← examples</a></nav>
+    <h1>Event bus</h1>
+    <p class="muted">
+        Two independently mounted islands — like two widgets on a server-rendered
+        page — communicating only through <code>createEventBus()</code>.
+    </p>
+
+    <div id="sender" class="card">
+        <h2>Island A (sender)</h2>
+        <input type="text" [model]="message" placeholder="Type something…" />
+        <button class="primary" @click="send" [disabled]="message.trim() === ''">broadcast</button>
+    </div>
+
+    <div id="receiver" class="card">
+        <h2>Island B (receiver)</h2>
+        <p [if]="log.length === 0" class="muted">Waiting for broadcasts…</p>
+        <ul class="plain">
+            <li data-for="(entry, i) of log" :key="i">{entry}</li>
+        </ul>
+    </div>
+
+    <script type="module">
+        import { ref, mount, createEventBus } from "../../src/index.ts";
+
+        const bus = createEventBus();
+
+        // ── island A: knows nothing about island B ──────────────────────────
+        const message = ref("");
+
+        mount(document.querySelector("#sender"), {
+            message,
+            send () {
+                bus.emit("broadcast", message.value.trim());
+                message.value = "";
+            }
+        });
+
+        // ── island B: knows nothing about island A ──────────────────────────
+        const log = ref([]);
+
+        bus.on("broadcast", text => {
+            log.value.push(`${new Date().toLocaleTimeString()} — ${text}`);
+        });
+
+        mount(document.querySelector("#receiver"), { log });
+    </script>
+</body>
+</html>

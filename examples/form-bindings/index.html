@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form bindings — naru-reactive</title>
+    <link rel="stylesheet" href="../shared/example.css" />
+</head>
+<body>
+    <nav class="breadcrumb"><a href="../">← examples</a></nav>
+    <h1>Form bindings</h1>
+
+    <div id="app">
+        <div class="card">
+            <p><label>Name <input type="text" [model]="form.name" /></label></p>
+            <p><label>Age <input type="number" [model]="form.age" /></label></p>
+
+            <p><label><input type="checkbox" [model]="form.subscribed" /> subscribe to newsletter</label></p>
+
+            <p>
+                Contact preference:
+                <label><input type="radio" name="contact" value="email" [model]="form.contact" /> email</label>
+                <label><input type="radio" name="contact" value="phone" [model]="form.contact" /> phone</label>
+            </p>
+
+            <p>
+                <label>
+                    Plan
+                    <select [model]="form.plan">
+                        <option value="free">Free</option>
+                        <option value="pro">Pro</option>
+                        <option value="team">Team</option>
+                    </select>
+                </label>
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>Live store</h2>
+            <p class="muted">Every field writes back through <code>[model]</code> — note the nested
+               <code>form.*</code> paths and that age stays a <em>number</em>.</p>
+            <pre [text]="summary"></pre>
+        </div>
+    </div>
+
+    <script type="module">
+        import { ref, computed, mount } from "../../src/index.ts";
+
+        const form = ref({
+            name: "Ada",
+            age: 36,
+            subscribed: true,
+            contact: "email",
+            plan: "pro"
+        });
+
+        const summary = computed(() => JSON.stringify(form.value, null, 2));
+
+        mount(document.querySelector("#app"), { form, summary });
+    </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Keyed list — naru-reactive</title>
+    <link rel="stylesheet" href="../shared/example.css" />
+</head>
+<body>
+    <nav class="breadcrumb"><a href="../">← examples</a></nav>
+    <h1>Keyed list</h1>
+    <p class="muted">
+        Rows carry a random tint assigned when their DOM node is created.
+        Because the list is keyed, shuffling <em>moves</em> the same nodes —
+        the tints travel with their rows instead of being re-rolled.
+    </p>
+
+    <div id="app" class="card">
+        <button class="primary" @click="shuffle">shuffle</button>
+        <button @click="addOne">add</button>
+        <button @click="removeFirst" [disabled]="people.length === 0">remove first</button>
+
+        <ul class="plain">
+            <li data-for="(person, position) of people" :key="person.id">
+                <span class="muted">#{position}</span>
+                <strong>{person.name}</strong>
+                <span class="muted">id {person.id}</span>
+            </li>
+        </ul>
+    </div>
+
+    <script type="module">
+        import { ref, mount } from "../../src/index.ts";
+
+        const people = ref([
+            { id: 1, name: "Ada" },
+            { id: 2, name: "Brendan" },
+            { id: 3, name: "Grace" },
+            { id: 4, name: "Linus" }
+        ]);
+
+        let nextId = 5;
+        const names = ["Margaret", "Dennis", "Barbara", "Ken", "Radia", "Bjarne"];
+
+        const store = {
+            people,
+
+            shuffle () {
+                people.value = [...people.value].sort(() => Math.random() - 0.5);
+            },
+
+            addOne () {
+                const name = names[Math.floor(Math.random() * names.length)];
+                people.value.push({ id: nextId++, name });
+            },
+
+            removeFirst () {
+                people.value = people.value.slice(1);
+            }
+        };
+
+        const app = mount(document.querySelector("#app"), store);
+
+        // demo flourish: tint every freshly-created row so moves are visible.
+        // (a MutationObserver, not part of the library — just for show.)
+        const observer = new MutationObserver(mutations => {
+            for (const m of mutations) {
+                for (const node of m.addedNodes) {
+                    if (node.nodeType === 1 && node.tagName === "LI" && !node.style.background) {
+                        node.style.background = `hsl(${Math.floor(Math.random() * 360)} 80% 94%)`;
+                    }
+                }
+            }
+        });
+
+        observer.observe(document.querySelector("ul"), { childList: true });
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>naru-reactive — examples</title>
+    <link rel="stylesheet" href="./shared/example.css" />
+</head>
+<body>
+    <h1>naru-reactive examples</h1>
+    <p class="muted">
+        Each example is a self-contained plain HTML page using the library the way
+        a real multi-page site would. They import the TypeScript source directly,
+        so serve them with <code>npm run dev</code> (Vite transpiles on the fly);
+        published consumers import the prebuilt <code>dist/</code> files instead.
+    </p>
+
+    <div class="gallery">
+        <a href="./counter/">
+            <strong>Counter</strong>
+            <p class="muted">The quickstart: <code>ref</code>, <code>computed</code>, <code>@click</code>, interpolation.</p>
+        </a>
+        <a href="./todo/">
+            <strong>Todo list</strong>
+            <p class="muted"><code>data-for</code> with <code>:key</code>, <code>[model]</code>, <code>[class]</code>, <code>[if]</code>, computed counts.</p>
+        </a>
+        <a href="./list-keyed/">
+            <strong>Keyed list</strong>
+            <p class="muted">Row reuse and movement with <code>:key</code> — watch nodes survive reordering.</p>
+        </a>
+        <a href="./form-bindings/">
+            <strong>Form bindings</strong>
+            <p class="muted">Every <code>[model]</code> input type: text, number, checkbox, radio, select.</p>
+        </a>
+        <a href="./event-bus/">
+            <strong>Event bus</strong>
+            <p class="muted">Two independent islands talking through <code>createEventBus()</code>.</p>
+        </a>
+    </div>
+</body>
+</html>

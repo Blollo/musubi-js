@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Counter — naru-reactive</title>
+    <link rel="stylesheet" href="../shared/example.css" />
+</head>
+<body>
+    <nav class="breadcrumb"><a href="../">← examples</a></nav>
+    <h1>Counter</h1>
+
+    <div id="app" class="card">
+        <p>Count: <strong>{count}</strong> — doubled: <strong>{doubled}</strong></p>
+
+        <button @click="decrement">−</button>
+        <button class="primary" @click="increment">+</button>
+        <button @click="reset" [disabled]="count === 0">reset</button>
+
+        <p class="muted" [show]="count >= 10">That's already double digits!</p>
+    </div>
+
+    <script type="module">
+        import { ref, computed, mount } from "../../src/index.ts";
+
+        const count   = ref(0);
+        const doubled = computed(() => count.value * 2);
+
+        const store = {
+            count,
+            doubled,
+            increment: () => count.value++,
+            decrement: () => count.value--,
+            reset:     () => { count.value = 0; }
+        };
+
+        mount(document.querySelector("#app"), store);
+    </script>
+</body>
+</html>

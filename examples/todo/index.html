@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo — naru-reactive</title>
+    <link rel="stylesheet" href="../shared/example.css" />
+</head>
+<body>
+    <nav class="breadcrumb"><a href="../">← examples</a></nav>
+    <h1>Todo list</h1>
+
+    <div id="app" class="card">
+        <form @submit="add($event)">
+            <input type="text" [model]="draft" placeholder="What needs doing?" />
+            <button class="primary" [disabled]="draft.trim() === ''">add</button>
+        </form>
+
+        <ul class="plain">
+            <li data-for="todo of todos" :key="todo.id">
+                <input type="checkbox" :checked="todo.done" @change="toggle(todo)" />
+                <span [class]="{ done: todo.done }">{todo.text}</span>
+                <button @click="remove(todo)">✕</button>
+            </li>
+        </ul>
+
+        <p class="muted" [if]="todos.length === 0">Nothing to do — add your first item above.</p>
+        <p class="muted" [if]="todos.length > 0">{remaining} of {todos.length} remaining</p>
+    </div>
+
+    <script type="module">
+        import { ref, computed, mount } from "../../src/index.ts";
+
+        const todos = ref([
+            { id: 1, text: "Try naru-reactive", done: true },
+            { id: 2, text: "Star the repo",     done: false }
+        ]);
+        const draft = ref("");
+        const remaining = computed(() => todos.value.filter(t => !t.done).length);
+
+        let nextId = 3;
+
+        const store = {
+            todos,
+            draft,
+            remaining,
+
+            add (event) {
+                event.preventDefault();
+
+                if (!draft.value.trim()) {
+                    return;
+                }
+
+                todos.value.push({ id: nextId++, text: draft.value.trim(), done: false });
+                draft.value = "";
+            },
+
+            toggle (todo) {
+                todos.value = todos.value.map(t =>
+                    t.id === todo.id ? { ...t, done: !t.done } : t
+                );
+            },
+
+            remove (todo) {
+                todos.value = todos.value.filter(t => t.id !== todo.id);
+            }
+        };
+
+        mount(document.querySelector("#app"), store);
+    </script>
+</body>
+</html>
