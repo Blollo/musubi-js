@@ -1,4 +1,4 @@
-# naru-reactive
+# musubi-js
 
 Vue-Composition-API-style reactivity and DOM bindings for **traditional multi-page sites**.
 Drop a `<script type="module">` on a server-rendered page — no build step, no virtual DOM,
@@ -11,7 +11,7 @@ no components. Zero runtime dependencies, ~7 kB min+gzip.
 </div>
 
 <script type="module">
-    import { ref, computed, mount } from "naru-reactive";
+    import { ref, computed, mount } from "musubi-js";
 
     const count = ref(0);
 
@@ -26,7 +26,7 @@ no components. Zero runtime dependencies, ~7 kB min+gzip.
 ## Install
 
 ```sh
-npm install naru-reactive
+npm install musubi-js
 ```
 
 Or without any tooling, straight from a CDN:
@@ -34,11 +34,11 @@ Or without any tooling, straight from a CDN:
 ```html
 <!-- ES module -->
 <script type="module">
-    import { ref, mount } from "https://esm.sh/naru-reactive";
+    import { ref, mount } from "https://esm.sh/musubi-js";
 </script>
 
 <!-- classic script (exposes window.NaruReactive) -->
-<script src="https://cdn.jsdelivr.net/npm/naru-reactive/dist/naru-reactive.iife.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/musubi-js/dist/musubi-js.iife.min.js"></script>
 ```
 
 ## What you get
@@ -84,7 +84,7 @@ Or without any tooling, straight from a CDN:
 Runnable, plain-HTML examples live in [`examples/`](examples/):
 
 ```sh
-git clone <repo> && cd naru-reactive
+git clone <repo> && cd musubi-js
 npm install
 npm run dev    # opens the examples gallery
 ```

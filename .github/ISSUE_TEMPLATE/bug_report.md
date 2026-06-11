@@ -19,7 +19,7 @@ labels: bug
 ```
 
 ```js
-import { ref, mount } from "naru-reactive";
+import { ref, mount } from "musubi-js";
 
 mount(document.querySelector("#app"), { /* … */ });
 ```
@@ -28,6 +28,6 @@ mount(document.querySelector("#app"), { /* … */ });
 
 ## Environment
 
-- naru-reactive version:
+- musubi-js version:
 - Browser / Node version:
 - Loaded via: <!-- npm + bundler / CDN ESM / IIFE script tag -->

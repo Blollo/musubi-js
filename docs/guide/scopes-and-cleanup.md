@@ -1,7 +1,7 @@
 # Scopes & cleanup
 
 Long-lived MPA pages accumulate and discard widgets: modals open and close,
-tabs swap content, lists re-render. Effect scopes are how naru-reactive makes
+tabs swap content, lists re-render. Effect scopes are how musubi-js makes
 sure discarded DOM can actually be garbage collected.
 
 ## The problem scopes solve
@@ -33,7 +33,7 @@ or the branch hides.
 For reactive state that *isn't* tied to a mount:
 
 ```js
-import { effectScope, runInScope, onScopeDispose } from "naru-reactive";
+import { effectScope, runInScope, onScopeDispose } from "musubi-js";
 
 const scope = effectScope();
 

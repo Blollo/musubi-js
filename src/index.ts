@@ -1,4 +1,4 @@
-// naru-reactive — public entry point.
+// musubi-js — public entry point.
 // everything not re-exported here is a private module; the package
 // "exports" map enforces that at install time.
 

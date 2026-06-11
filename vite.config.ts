@@ -16,8 +16,8 @@ export default defineConfig({
             formats: ["es", "iife"],
             fileName: format => (
                 format === "es"
-                    ? "naru-reactive.js"
-                    : "naru-reactive.iife.min.js"
+                    ? "musubi-js.js"
+                    : "musubi-js.iife.min.js"
             )
         }
     },

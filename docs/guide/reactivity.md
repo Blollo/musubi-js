@@ -1,7 +1,7 @@
 # Reactivity
 
 The engine is a standalone module — it never touches the DOM and runs fine in
-Node, workers, or tests. (`import { ref } from "naru-reactive"` tree-shakes
+Node, workers, or tests. (`import { ref } from "musubi-js"` tree-shakes
 the entire DOM layer away under any bundler.)
 
 ## ref

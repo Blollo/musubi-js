@@ -1,6 +1,6 @@
 # Getting started
 
-naru-reactive adds Vue-style reactivity to server-rendered, multi-page sites.
+musubi-js adds Vue-style reactivity to server-rendered, multi-page sites.
 You write normal HTML, sprinkle directives on it, and bind it to a small
 JavaScript store. There is no build step, no router, no component tree — each
 page (or each widget on a page) is its own little reactive island.
@@ -8,7 +8,7 @@ page (or each widget on a page) is its own little reactive island.
 ## 1. Install
 
 ```sh
-npm install naru-reactive
+npm install musubi-js
 ```
 
 or use a CDN (see the [README](../../README.md#install)).
@@ -22,7 +22,7 @@ or use a CDN (see the [README](../../README.md#install)).
 </div>
 
 <script type="module">
-    import { ref, mount } from "naru-reactive";
+    import { ref, mount } from "musubi-js";
 
     const app = mount(document.querySelector("#greeter"), {
         name: ref("")
@@ -45,7 +45,7 @@ Three things to notice:
 ## 3. Derive and react
 
 ```js
-import { ref, computed, watch, mount } from "naru-reactive";
+import { ref, computed, watch, mount } from "musubi-js";
 
 const price = ref(100);
 const qty   = ref(2);

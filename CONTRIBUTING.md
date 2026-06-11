@@ -6,8 +6,8 @@ runtime, and friendly to no-build-step consumers.
 ## Setup
 
 ```sh
-git clone https://github.com/alessiogiusti/naru-reactive.git
-cd naru-reactive
+git clone https://github.com/alessiogiusti/musubi-js.git
+cd musubi-js
 npm install
 ```
 

@@ -11,7 +11,7 @@ import { scanBindings } from "./src/core/reactive.js";
 scanBindings();                       // document + window
 
 // after
-import { mount } from "naru-reactive";
+import { mount } from "musubi-js";
 const app = mount(document.body, store);   // explicit store, teardown handle
 ```
 
@@ -39,7 +39,7 @@ The hardcoded `HS-TOGGLE` / `HS-SEGMENT` / `HS-SELECT` support moved out of
 the library. Recreate it in your app:
 
 ```js
-import { registerModelAdapter, effect } from "naru-reactive";
+import { registerModelAdapter, effect } from "musubi-js";
 
 registerModelAdapter(
     el => el.tagName === "HS-TOGGLE",

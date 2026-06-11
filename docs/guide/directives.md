@@ -104,7 +104,7 @@ mount(root, { canvasEl });
 ## Custom directives
 
 ```js
-import { registerDirective, effect } from "naru-reactive";
+import { registerDirective, effect } from "musubi-js";
 
 registerDirective("tooltip", (el, expression, store) => {
     effect(() => {

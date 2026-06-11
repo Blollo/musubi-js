@@ -58,7 +58,7 @@ Teaches `[model]` how to two-way-bind elements the built-ins don't cover
 the built-ins, most recently registered first.
 
 ```js
-import { registerModelAdapter, effect } from "naru-reactive";
+import { registerModelAdapter, effect } from "musubi-js";
 
 registerModelAdapter(
     el => el.tagName === "MY-TOGGLE",

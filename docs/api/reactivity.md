@@ -1,6 +1,6 @@
 # API — Reactivity
 
-All exports come from the package root: `import { ref } from "naru-reactive"`.
+All exports come from the package root: `import { ref } from "musubi-js"`.
 
 ---
 
